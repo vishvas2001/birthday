@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Birthday card maker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" aria-live="polite">
+
+  <!-- Builder mode (default, no #data in URL) -->
+  <section class="screen" id="builder"><div class="col">
+    <div id="hero"></div>
+    <h1 tabindex="-1">Make a birthday card</h1>
+    <p class="sub">Fill this in and share the link. Everything stays in your browser and the link itself.</p>
+
+    <form id="form" class="form" novalidate>
+      <label>Their name
+        <input id="name" maxlength="40" autocomplete="off" placeholder="e.g. Riya" required></label>
+      <label>From (optional)
+        <input id="from" maxlength="40" autocomplete="off" placeholder="Your name"></label>
+      <label>Birthday message
+        <textarea id="msg" maxlength="500" rows="4" placeholder="Write something sweet..."></textarea></label>
+      <label>Closing note (optional)
+        <textarea id="note" maxlength="400" rows="3" placeholder="A few last words for the final gift"></textarea></label>
+      <fieldset><legend>Main photo</legend><div class="slots one" id="mainSlot"></div></fieldset>
+      <fieldset><legend>Four memory photos</legend><div class="slots" id="memSlots"></div></fieldset>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn" id="make" type="submit">Create my card</button>
+    </form>
+
+    <div class="result" id="result" hidden>
+      <h2>Your link is ready!</h2>
+      <input id="link" readonly aria-label="Card link">
+      <div class="row">
+        <button class="btn" id="copy" type="button">Copy link</button>
+        <button class="btn alt" id="preview" type="button">Preview card</button>
+      </div>
+      <p class="note" id="size"></p>
+    </div>
+  </div></section>
+
+  <!-- Card viewer screens are rendered here by script.js -->
+  <div id="card"></div>
+</div>
+
+<button class="btn alt" id="edit" type="button" hidden>‹ Back to editor</button>
+<script src="script.js"></script>
+</body>
+</html>
